@@ -91,4 +91,4 @@ class TVR(Option):
 
 class LongShwartz(TVR):
     """docstring for LongShwartz."""
-    def
+    pass
