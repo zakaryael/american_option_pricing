@@ -29,7 +29,7 @@ class Asset(object):
         tt = np.linspace(0, T, m + 1)
         S = np.zeros((n, m + 1))
         for i in range(n):
-            z = np.random.normal(0, np.sqrt(1 / (m+1)), m + 1)
+            z = np.random.normal(0, np.sqrt(1 / (m)), m + 1)
             z[0] = 0
             w = np.cumsum(z)
             S[i] = self.initialPrice * np.exp((market.rate - market.volatility ** 2 / 2) * tt + market.volatility * w)
