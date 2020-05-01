@@ -78,6 +78,7 @@ class TVR(Option):
 
     def recursion(self, S):
         m = self.m
+        n = self.n
         V = np.zeros((n, m + 1))
         V[:, self.m] = self.payoff(S[:, self.m])
         for i in range(m - 1, 0, -1):
@@ -85,7 +86,7 @@ class TVR(Option):
         return V
 
     def price(self):
-        S = self.asset.simulate(n)[1]
+        S = self.asset.simulate(self.n)[1]
         V = self.recursion(S)
         return np.mean(V[:, 1])
 
