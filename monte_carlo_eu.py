@@ -12,4 +12,4 @@ asset = Asset(market, 100)
 option = mc_eu(asset, 90, is_put = False, is_american = True)
 
 
-print("le prix blbalbjaljbal: ", option.price(100))
+print("le prix blbalbjaljbal: ", option.price(100))  
