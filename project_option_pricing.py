@@ -47,7 +47,7 @@ class Asset(object):
 
     def bin_tree(self, N):
         """computes the matrix of prices in the CRR model of N periods"""
-        pass
+
 
 class Option(object):
     def __init__(self, asset, strike, is_put = True, is_american = True):
@@ -78,7 +78,6 @@ class TVR(Option):
 
     def recursion(self, S):
         m = self.m
-        n = self.n
         V = np.zeros((n, m + 1))
         V[:, self.m] = self.payoff(S[:, self.m])
         for i in range(m - 1, 0, -1):
@@ -86,7 +85,7 @@ class TVR(Option):
         return V
 
     def price(self):
-        S = self.asset.simulate(self.n)[1]
+        S = self.asset.simulate(n)[1]
         V = self.recursion(S)
         return np.mean(V[:, 1])
 
